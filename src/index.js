@@ -282,17 +282,17 @@ class Calendar extends React.Component {
       ? ''
       : <div className={calendarClass} onClick={this.calendarClick}>
           {view}
-          <span
+          {/* <span
             className={`today-btn${this.checkIfDateDisabled(moment().startOf('day'))
               ? ' disabled'
               : ''}`}
             onClick={this.todayClick}
           >
             {todayText}
-          </span>
+          </span> */}
         </div>
 
-    let readOnly = false
+    let readOnly = true
 
     if (this.props.hideTouchKeyboard) {
       // do not break server side rendering:
@@ -312,7 +312,7 @@ class Calendar extends React.Component {
       // Do not show calendar icon if hideIcon is true
       calendarIcon = this.props.hideIcon || this.props.disabled ? '' :
         <span className="icon-wrapper calendar-icon" onClick={this.toggleClick} >
-          <svg width="16" height="16" viewBox="0 0 16 16">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="red">
             <path d="M5 6h2v2h-2zM8 6h2v2h-2zM11 6h2v2h-2zM2 12h2v2h-2zM5
               12h2v2h-2zM8 12h2v2h-2zM5 9h2v2h-2zM8 9h2v2h-2zM11 9h2v2h-2zM2
               9h2v2h-2zM13 0v1h-2v-1h-7v1h-2v-1h-2v16h15v-16h-2zM14
@@ -339,7 +339,7 @@ class Calendar extends React.Component {
           id={this.props.inputFieldId}
           onBlur={this.inputBlur}
           onChange={this.changeDate}
-          onFocus={this.inputFocus}
+          onClick={this.toggleClick}
           placeholder={this.props.placeholder}
           readOnly={readOnly}
           disabled={this.props.disabled}

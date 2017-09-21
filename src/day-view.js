@@ -86,6 +86,22 @@ export default class DayView extends React.Component {
     this.props.setDate(prevDate)
   }
 
+  nextYear = () => {
+    let nextDate = this.props.date.clone().add(1, 'years')
+    if (this.props.maxDate && nextDate.isAfter(this.props.maxDate, 'day')) {
+      nextDate = this.props.maxDate
+    }
+    this.props.setDate(nextDate)
+  }
+
+  prevYear = () => {
+    let prevDate = this.props.date.clone().subtract(1, 'years')
+    if (this.props.minDate && prevDate.isBefore(this.props.minDate, 'day')) {
+      prevDate = this.props.minDate
+    }
+    this.props.setDate(prevDate)
+  }
+
   render() {
     let titles = this.getDaysTitles().map((item, i) => {
       return <Cell classes="day title" key={i} value={item.label} />
@@ -104,7 +120,7 @@ export default class DayView extends React.Component {
       return <Cell classes={_class} key={i} value={item.label} />
     })
 
-    let currentDate = this.props.date ? this.props.date.format('MMMM') : moment().format('MMMM')
+    let currentDate = this.props.date ? this.props.date.format('MMMM YYYY') : moment().format('MMMM YYYY')
 
     return (
       <div className="view days-view" onKeyDown={this.keyDown}>
@@ -113,6 +129,8 @@ export default class DayView extends React.Component {
           next={this.next}
           prev={this.prev}
           titleAction={this.props.nextView}
+          nextYear={this.nextYear}
+          prevYear={this.prevYear}
         />
         <div className="days-title">{titles}</div>
         <div className="days" onClick={this.cellClick}>{days}</div>
