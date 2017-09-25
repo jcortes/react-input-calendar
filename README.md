@@ -4,9 +4,9 @@ React component for calendar widget.
 
 ## Installation
 
-React Input Calendar is available as an [npm package](https://www.npmjs.org/package/react-input-calendar).
+React Input Calendar is available as an [npm package](https://www.npmjs.org/package/sf-input-calendar).
 ```sh
-npm install react-input-calendar
+npm install sf-input-calendar
 ```
 
 Use [browserify](http://browserify.org/) and [reactify](https://github.com/andreypopp/reactify) for dependency management and JSX transformation.
@@ -15,7 +15,7 @@ All styles written in CSS and are in style/index.css
 
 ## Demo
 
-http://rudeg.github.io/react-input-calendar
+http://jcortes.github.io/react-input-calendar
 
 ## Usage
 

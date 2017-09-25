@@ -1,9 +1,15 @@
 {
-  "name": "react-input-calendar",
+  "name": "sf-input-calendar",
   "description": "Datepicker widget react component",
   "author": "Rudeg <rudenko.sergey92@gmail.com> (https://github.com/Rudeg)",
   "user": "Rudeg",
-  "version": "0.4.1",
+  "contributors": [
+    {
+      "name": "Jorge Cortes",
+      "email": "jacortesmahmud@gmail.com"
+    }
+  ],
+  "version": "0.5.1",
   "scripts": {
     "prepublish": ". ./.scripts/prepublish.sh",
     "lint": "eslint src",
@@ -37,13 +43,13 @@
     "mocha": "^2.4.5",
     "moment": "^2.10.6",
     "moment-range": "^2.1.0",
+    "prop-types": "^15.5.10",
     "raw-loader": "^0.5.1",
-    "react": "^15.5.4",
+    "react": "^15.3.2",
     "react-addons-test-utils": "^15.5.1",
-    "react-dom": "^15.5.4",
+    "react-dom": "^15.3.2",
     "sinon": "^1.17.3",
-    "style-loader": "^0.13.1",
-    "prop-types": "^15.5.10"
+    "style-loader": "^0.13.1"
   },
   "peerDependencies": {
     "moment": "^2.10.6",
@@ -61,11 +67,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Rudeg/react-input-calendar"
+    "url": "https://github.com/jcortes/react-input-calendar"
   },
-  "homepage": "http://rudeg.github.io/react-input-calendar/",
+  "homepage": "http://jcortes.github.io/react-input-calendar/",
   "bugs": {
-    "url": "https://github.com/Rudeg/react-input-calendar/issues"
+    "url": "https://github.com/jcortes/react-input-calendar/issues"
   },
   "keywords": [
     "react",
