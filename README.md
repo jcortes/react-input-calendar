@@ -20,7 +20,7 @@ http://jcortes.github.io/react-input-calendar
 ## Usage
 
 ```javascript
-import Calendar from 'react-input-calendar'
+import Calendar from 'sf-input-calendar'
 <Calendar maxDate="01/01/2016" format="MMM, D YYYY" date="01/01/2016" />
 ```
 
