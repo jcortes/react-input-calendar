@@ -21,7 +21,7 @@ http://jcortes.github.io/react-input-calendar
 
 ```javascript
 import Calendar from 'react-input-calendar'
-<Calendar format='DD/MM/YYYY' date='4-12-2014' />
+<Calendar maxDate="01/01/2016" format="MMM, D YYYY" date="01/01/2016" />
 ```
 
 ## Dependencies
