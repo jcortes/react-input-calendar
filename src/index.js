@@ -292,7 +292,7 @@ class Calendar extends React.Component {
           </span> */}
         </div>
 
-    let readOnly = true
+    let readOnly = false
 
     if (this.props.hideTouchKeyboard) {
       // do not break server side rendering:
