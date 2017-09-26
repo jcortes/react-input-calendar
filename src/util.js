@@ -27,7 +27,8 @@ const KEYS = {
   left: 37,
   up: 38,
   right: 39,
-  down: 40
+  down: 40,
+  delete: 46
 }
 
 export default {
@@ -35,7 +36,8 @@ export default {
     return date instanceof Date ? date : new Date(date)
   },
 
-  keyDownActions(code) {
+  keyDownActions(e) {
+    const code = e.keyCode;
     const _viewHelper = _keyDownViewHelper[this.state.currentView]
     const unit = _viewHelper.unit
 
@@ -63,7 +65,15 @@ export default {
       case KEYS.esc:
         this.setState({ isVisible: false })
         break
+      case KEYS.backspace:
+        this.setState({
+          date: undefined,
+          inputValue: undefined,
+          isVisible: false
+        });
+        break
       default:
+        e.preventDefault();
         break
     }
   }

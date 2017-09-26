@@ -4,6 +4,6 @@ import Calendar from '../index'
 import '../../style/index.css'
 
 storiesOf('Calendar', module).add('default view', () => {
-  return <Calendar maxDate="01/01/2016" 
-    format="MMM, DD YYYY" date="01/01/2016" />
+  return <Calendar maxDate="09/26/2017" 
+    format="MMM, DD YYYY" date="09/26/2017" />
 })

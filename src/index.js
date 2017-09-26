@@ -131,7 +131,7 @@ class Calendar extends React.Component {
   }
 
   keyDown = e => {
-    Util.keyDownActions.call(this, e.keyCode)
+    Util.keyDownActions.call(this, e)
   }
 
   nextView = () => {
@@ -184,7 +184,8 @@ class Calendar extends React.Component {
 
   setVisibility(val) {
     const value = val !== undefined ? val : !this.state.isVisible
-    const eventMethod = value ? 'addEventListener' : 'removeEventListener'
+    // const eventMethod = value ? 'addEventListener' : 'removeEventListener'
+    const eventMethod = 'addEventListener'
 
     document[eventMethod]('keydown', this.keyDown)
 
@@ -281,8 +282,8 @@ class Calendar extends React.Component {
     let calendar = !this.state.isVisible || this.props.disabled
       ? ''
       : <div className={calendarClass} onClick={this.calendarClick}>
-          {view}
-          {/* <span
+        {view}
+        {/* <span
             className={`today-btn${this.checkIfDateDisabled(moment().startOf('day'))
               ? ' disabled'
               : ''}`}
@@ -290,7 +291,7 @@ class Calendar extends React.Component {
           >
             {todayText}
           </span> */}
-        </div>
+      </div>
 
     let readOnly = false
 
