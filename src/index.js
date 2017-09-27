@@ -9,6 +9,7 @@ import DaysView from './day-view'
 import MonthsView from './month-view'
 import YearsView from './year-view'
 import Util from './util'
+import ReactDOM from 'react-dom'
 
 class Calendar extends React.Component {
   inputNode;
@@ -41,7 +42,7 @@ class Calendar extends React.Component {
   }
 
   componentDidMount() {
-    // document.addEventListener('click', this.documentClick)
+    document.addEventListener('click', this.handleClick, false);
     this.inputNode.addEventListener('click', this.documentClick)
   }
 
@@ -63,13 +64,22 @@ class Calendar extends React.Component {
   }
 
   componentWillUnmount() {
-    // document.removeEventListener('click', this.documentClick)
+    document.removeEventListener('click', this.handleClick, false);
     this.inputNode.removeEventListener('click', this.documentClick)
   }
 
   changeDate = e => {
     //eslint-disable-line
-    this.setState({ inputValue: e.target.value })
+    this.setState({ inputValue: e.target.value });
+  }
+
+  handleClick = e => {
+    if (!ReactDOM.findDOMNode(this).contains(e.target)) {
+      if (this.state.isCalendar) {
+        this.setVisibility(false);
+      }
+      this.setState({ isCalendar: false });
+    }
   }
 
   checkIfDateDisabled(date) {
