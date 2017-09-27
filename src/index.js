@@ -43,7 +43,6 @@ class Calendar extends React.Component {
 
   componentDidMount() {
     document.addEventListener('click', this.handleClick, false);
-    this.inputNode.addEventListener('click', this.documentClick)
   }
 
   componentWillReceiveProps(nextProps) {
@@ -65,7 +64,6 @@ class Calendar extends React.Component {
 
   componentWillUnmount() {
     document.removeEventListener('click', this.handleClick, false);
-    this.inputNode.removeEventListener('click', this.documentClick)
   }
 
   changeDate = e => {
@@ -87,13 +85,6 @@ class Calendar extends React.Component {
       (date && this.state.minDate && date.isBefore(this.state.minDate, 'day')) ||
       (date && this.state.maxDate && date.isAfter(this.state.maxDate, 'day'))
     )
-  }
-
-  documentClick = e => {
-    if (!this.state.isCalendar) {
-      this.setVisibility(false)
-    }
-    this.setState({ isCalendar: false })
   }
 
   inputBlur = e => {
