@@ -11,6 +11,8 @@ import YearsView from './year-view'
 import Util from './util'
 
 class Calendar extends React.Component {
+  inputNode;
+
   constructor(props, context) {
     super(props, context)
     const date = props.date ? moment(Util.toDate(props.date)) : null
@@ -39,7 +41,8 @@ class Calendar extends React.Component {
   }
 
   componentDidMount() {
-    document.addEventListener('click', this.documentClick)
+    // document.addEventListener('click', this.documentClick)
+    this.inputNode.addEventListener('click', this.documentClick)
   }
 
   componentWillReceiveProps(nextProps) {
@@ -60,7 +63,8 @@ class Calendar extends React.Component {
   }
 
   componentWillUnmount() {
-    document.removeEventListener('click', this.documentClick)
+    // document.removeEventListener('click', this.documentClick)
+    this.inputNode.removeEventListener('click', this.documentClick)
   }
 
   changeDate = e => {
@@ -149,7 +153,7 @@ class Calendar extends React.Component {
       newDate = this.state.maxDate.clone()
     }
 
-    if (this.state.currentView === this.state.minView) {
+    if (this.state.currendocumenttView === this.state.minView) {
       this.setState({
         date: newDate,
         inputValue: date.format(this.state.format),
@@ -187,7 +191,8 @@ class Calendar extends React.Component {
     // const eventMethod = value ? 'addEventListener' : 'removeEventListener'
     const eventMethod = 'addEventListener'
 
-    document[eventMethod]('keydown', this.keyDown)
+    this.inputNode[eventMethod]('keydown', this.keyDown)
+    // document[eventMethod]('keydown', this.keyDown)
 
     if (this.state.isVisible !== value && !this.props.disabled) {
       this.setState({ isVisible: value })
@@ -346,6 +351,7 @@ class Calendar extends React.Component {
           disabled={this.props.disabled}
           type="text"
           value={this.state.inputValue || ''}
+          ref={node => this.inputNode = node}
         />
         {calendarIcon}
         {calendar}
